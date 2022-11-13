@@ -1,29 +1,32 @@
-import Input from './Input'
-import { useDispatch,useSelector } from "react-redux";
+import Input from './Input';
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 
 
-function FormDispositivo() {
-    const state = useSelector(state => state);
-    console.log('state formDispositivo', state)
+function FormDispositivo({handleChange}) {
+    const [stateDispo, setStateDispositivo] = useState();
+    console.log('stateDispo formDispositivo', stateDispo)
 
     const dispatch = useDispatch();
-    // const state = useSelector(state => state);
-    // console.log('state', state);
+  
+
+
+    const cargaDivice = ()=>{
+
+    }
+
     return (
         <div className="App">
-            Dispositivo nuevo
+            Panel Solar
             <div>
-                {state.dispositivos?.map((disp) => {
-                    return (
-                        <div key={disp.id}>
-                            <Input key={disp.id.toString() + 'a'} name2={'Numero de Serie Panel Solar'} name={'serialNumber'} />
-                            <Input key={disp.id.toString() + 'b'}name2={'Cantidad'} name={'quantity'} />
-                            <button onClick={()=>dispatch({type: 'ELIMINAR_DISPOSITIVO', payload : disp.id})}>Eliminar</button>
+                <button
+                    onClick={() => dispatch({ type: 'AGREGAR_device' })} >Agregar device</button>
+                        <div >
+                            {/* <Input name2={'Numero de Serie'} name={'serialNumber'} handleChange={handleChange}/>
+                            <Input name2={'Cantidad'} name={'quantity'} handleChange={handleChange}/> */}
+                            <button onClick={()=>cargaDivice()}>Eliminar</button>
                         </div>
-                    )
-                })}
-            
             </div>
         </div>
     );

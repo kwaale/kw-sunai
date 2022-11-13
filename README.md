@@ -1,4 +1,4 @@
-# Deploy [Create React App](kw-sunai-lmo4x70hy-kwaale.vercel.app).
+# [Deploy](kw-sunai-lmo4x70hy-kwaale.vercel.app).
 
 ## Available Scripts
 

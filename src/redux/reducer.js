@@ -1,7 +1,7 @@
 const initialState = {
   nameClient: '',
   namePlant: '',
-  dispositivos: []
+  devices: []
 }
 
 //Funcion generadora del ID
@@ -14,11 +14,24 @@ const getId = () => {
 const newId = getId();
 
 function reducer(state = initialState, action) {
-  if (action.type === "AGREGAR_DISPOSITIVO") {
-    console.log('state.dispositivos gf', state.dispositivos)
+  if (action.type === "CARGA_CLIENTE") {
+    console.log('state.devices gf', state.devices)
     return {
       ...state,
-      dispositivos: [...state.dispositivos,
+      devices: [...state.devices,
+      {
+        serialNumber: 'sdfdsf',
+        quantity: 1,
+        id: newId()
+      }
+      ]
+    }
+  }
+  if (action.type === "AGREGAR_DISPOSITIVO") {
+    console.log('state.devices gf', state.devices)
+    return {
+      ...state,
+      devices: [...state.devices,
       {
         serialNumber: 'sdfdsf',
         quantity: 1,
@@ -31,7 +44,7 @@ function reducer(state = initialState, action) {
     console.log('state ELIMINAR_DISPOSITIVO', action.payloadstate);
     return {
       ...state,
-      dispositivos: state.dispositivos.filter(d => d.id !== action.payload)
+      devices: state.devices.filter(d => d.id !== action.payload)
     };
   }
   return state;
